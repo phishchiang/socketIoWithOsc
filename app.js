@@ -4,10 +4,15 @@ const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
 const OSC = require('osc-js')
+
 const config = { udpClient: { port: 9129 } }
 const osc = new OSC({ plugin: new OSC.BridgePlugin(config) })
 
 osc.open() // start a WebSocket server on port 8080
+
+osc.on('/test/random', message => {
+	console.log(message.args); // prints the message arguments
+});
 
 const PORT = process.env.PORT || 3000;
 const INDEX = path.join(__dirname, './public/index.html');
