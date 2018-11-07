@@ -83,7 +83,7 @@
     document.getElementById('send').addEventListener('click', function() {
       var message = new OSC.Message('/test/random', Math.random());
       console.log(message);
-      osc.send(message);
+      osc.send(message,0,1,9129,"localhost");
     });
   </script>
 </body>
