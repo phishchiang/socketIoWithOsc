@@ -36,6 +36,10 @@ io.on('connection', function(socket) {
     console.log(obj);
     io.emit('FINAL', obj);
   });
+  socket.on('gogogo', function(obj) {
+    console.log(obj);
+    io.emit('FINAL', obj);
+  });
 });
 
 /*

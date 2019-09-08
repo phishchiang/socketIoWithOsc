@@ -48,29 +48,11 @@
           let logdata = document.querySelector('#logData');
           logdata.innerHTML = `X : ${obj.x}  Y : ${obj.y} data :I ${obj.phish}`;
           console.log(obj);
+          var message = new OSC.Message('/test/random', Math.random());
+          console.log(message);
+          osc.send(message);
         });
       });
-
-      /*
-    let socket;
-    socket = io('https://socketio5555.herokuapp.com:3000');
-    
-    // socket = io('https://socketio5555.herokuapp.com:3000');
-    window.addEventListener('load', function(){
-      let button = document.querySelector('#button');
-      button.addEventListener('mousedown', (e)=>{
-        console.log(e.offsetX, e.offsetY);
-        socket.emit('mouse', {
-          x:e.offsetX,
-          y:e.offsetY,
-        });
-      });
-
-      socket.on('FINAL', function(obj){
-        console.log(obj);
-      })
-    });
-    */
     </script>
     <button id="send">Send Message</button>
     <script type="text/javascript">
@@ -81,6 +63,9 @@
         var message = new OSC.Message('/test/random', Math.random());
         console.log(message);
         osc.send(message);
+        socket.emit('gogogo', {
+          ggg: 'GGG!!!'
+        });
       });
     </script>
   </body>
